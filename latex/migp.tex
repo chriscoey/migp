@@ -45,7 +45,7 @@ X_i
 & \forall i \in G
 \\
 \sum_{i \in G} h_i X_i 
-& \leq \bar{p}
+& \leq \bar{h}
 \\
 \sum_{i \in G} a_i X_i 
 & \leq \bar{a}
@@ -70,10 +70,10 @@ X_i^{-1}
 & \leq 1
 & \forall i \in G
 \\
-\bar{p}^{-1} \sum_{i \in G} h_i X_i 
+\sum_{i \in G} h_i \bar{h}^{-1} X_i 
 & \leq 1
 \\
-\bar{a}^{-1} \sum_{i \in G} a_i X_i 
+\sum_{i \in G} a_i \bar{a}^{-1} X_i 
 & \leq 1
 \end{align}
 \end{gather}
@@ -96,14 +96,68 @@ now let $X_i = e^{\chi_i}, \forall i \in G$ and $D = e^{\delta}$. transform into
 & \geq 0
 & \forall i \in G
 \\
-\log \sum_{i \in G} h_i e^{\chi_i}
-& \leq \log \bar{p}
+\log \sum_{i \in G} \frac{h_i}{\bar{h}} e^{\chi_i}
+& \leq 0
 \\
-\log \sum_{i \in G} a_i e^{\chi_i}
-& \leq \log \bar{a}
+\log \sum_{i \in G} \frac{a_i}{\bar{a}} e^{\chi_i}
+& \leq 0
 \end{align}
 \end{gather}
 \end{subequations}
+
+which we can write as
+
+\begin{subequations}
+\begin{gather}
+\begin{align}
+\min \quad \delta :
+\end{align}
+\\
+\begin{align}
+\log \left( \sum_{i \in S \cap O} e^{-\chi_i + \log g_i c_i} + \sum_{i \in S \backslash O} \sum_{j \in F_i} \left(  e^{-\chi_i + \log g_i a_j} + e^{-\chi_i +\chi_j + \log g_i b_j} \right) \right)
+& \leq \delta
+& \forall S \in \mathcal{S}
+\\
+\chi_i
+& \geq 0
+& \forall i \in G
+\\
+\log \sum_{i \in G} e^{\chi_i + \log \frac{h_i}{\bar{h}}}
+& \leq 0
+\\
+\log \sum_{i \in G} e^{\chi_i + \log \frac{a_i}{\bar{a}}}
+& \leq 0
+\end{align}
+\end{gather}
+\end{subequations}
+
+substituting constants
+
+\begin{subequations}
+\begin{gather}
+\begin{align}
+\min \quad \delta :
+\end{align}
+\\
+\begin{align}
+\log \left( \sum_{i \in S \cap O} e^{-\chi_i + r_i} + \sum_{i \in S \backslash O} \sum_{j \in F_i} \left(  e^{-\chi_i + s_{ij}} + e^{-\chi_i +\chi_j + t_{ij}} \right) \right)
+& \leq \delta
+& \forall S \in \mathcal{S}
+\\
+\chi_i
+& \geq 0
+& \forall i \in G
+\\
+\log \sum_{i \in G} e^{\chi_i + u_i}
+& \leq 0
+\\
+\log \sum_{i \in G} e^{\chi_i + v_i}
+& \leq 0
+\end{align}
+\end{gather}
+\end{subequations}
+
+
 
 where in the example problem, $O = \{6,7\}, \mathcal{S} = \left\{ \{1,4,6\}, \{1,4,7\}, \{2,4,6\}, \{2,4,7\}, \{2,5,7\}, \{3,5,6\}, \{3,7\} \right\}, F_i = \{...\}$ and $h_i = f_i e_i$, $\forall i \in G$.
 
