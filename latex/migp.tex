@@ -22,6 +22,34 @@ gp standard form and convex form \cite{boyd07}, example - aircraft wings \cite{h
 
 gp with integer variables, example - gate sizing \cite{boyd07}
 
+\begin{subequations}
+\begin{align}
+\min \quad \max_{S \in \mathcal{S}} \quad
+\sum_{i \in S} D_i :
+\end{align}
+\
+\begin{align}
+\gamma_i X_i^{-1} \sum_{j \in F_i} \left( \alpha_j + \beta_j X_j \right) 
+& = D_i
+& \forall i \in G \backslash O
+\\
+\gamma_i c_i X_i^{-1} 
+& = D_i 
+& \forall i \in O
+\\
+X_i
+& \geq 1
+& \forall i \in G
+\\
+\sum_{i \in G} f_i e_i X_i 
+& \leq p^{max}
+\\
+\sum_{i \in G} a_i X_i 
+& \leq a^{max}
+\end{align}
+\end{subequations}
+
+
 
 
 \section{MIDCP Formulation of MIGP}
@@ -29,6 +57,38 @@ gp with integer variables, example - gate sizing \cite{boyd07}
 dcp \cite{boyd06}, midcp \cite{lubin15}
 
 migp in conic form
+
+\begin{subequations}
+\begin{align}
+\min \quad \bar{D} :
+\end{align}
+\
+\begin{align}
+\sum_{i \in S} D_i
+& \leq \bar{D}
+& \forall S \in \mathcal{S}
+\\
+\gamma_i X_i^{-1} \sum_{j \in F_i} \left( \alpha_j + \beta_j X_j \right) 
+& = D_i
+& \forall i \in G \backslash O
+\\
+\gamma_i c_i X_i^{-1} 
+& = D_i 
+& \forall i \in O
+\\
+X_i
+& \geq 1
+& \forall i \in G
+\\
+\sum_{i \in G} f_i e_i X_i 
+& \leq p^{max}
+\\
+\sum_{i \in G} a_i X_i 
+& \leq a^{max}
+\end{align}
+\end{subequations}
+
+Where in the example problem, $\mathcal{S} = \left\{ \{1,4,6\}, \{1,4,7\}, \{2,4,6\}, \{2,4,7\}, \{2,5,7\}, \{3,5,6\}, \{3,7\} \right\}$.
 
 selection of log-integer variables not MIP-representable
 
@@ -47,6 +107,8 @@ find (and perhaps improve during iterations) bounds on the log-integer variables
 \section{Examples and Results}
 
 small gate-sizing problem
+
+
 
 approximate nonconvex functions piecewise, extend Woody paper \cite{hoburg14b}
 
