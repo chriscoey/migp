@@ -3,7 +3,7 @@
 \usepackage{fullpage}
 %\usepackage[margin=1.1in]{geometry}
 %\usepackage[subtle]{savetrees}
-%\usepackage[parfill]{parskip}
+\usepackage[parfill]{parskip}
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{comment,todonotes,soul} 
 \usepackage{bm}
@@ -15,27 +15,59 @@
 \begin{document}
 \maketitle
 
-\section{GP Overview}
+
+\section{From GP to MIGP}
+
+gp standard form and convex form \cite{boyd07}, example - aircraft wings \cite{hoburg14a}
+
+gp with integer variables, example - gate sizing \cite{boyd07}
 
 
 
-\section{GP in Conic Form}
+\section{MIDCP Formulation of MIGP}
 
+dcp \cite{boyd06}, midcp \cite{lubin15}
 
+migp in conic form
 
-\section{MIGP Formulation}
+selection of log-integer variables not MIP-representable
+
+assuming bounds, disjunctive constraint formulations
 
 
 
 \section{Solution Algorithm}
 
+solve migp like other midcp problems with pajarito, an outer approximation alg \cite{lubin15}. can migp have unbounded feasible set? would cause problems for pajarito
+
+find (and perhaps improve during iterations) bounds on the log-integer variables (tighter bounds led to significant speed up and avoids ECOS numerical issues, for gate sizing example)
+
 
 
 \section{Examples and Results}
 
+small gate-sizing problem
+
+approximate nonconvex functions piecewise, extend Woody paper \cite{hoburg14b}
+
+Woody aircraft example
+
 
 
 \section{Future Work}
+
+disjunctive formulations in the MILP - what encodings are best
+
+unbounded log-integer variables
+
+cuts to the MILP or to the GP
+
+mixtures of cones
+
+
+
+
+
 
 
 
@@ -46,10 +78,21 @@
 
 \begin{thebibliography}{9}
 
-%\bibitem{bel}
-%  Belotti, P., Bonami, P., Fischetti, M., Lodi, A., Monaci, M., Nogales-Gómez, A. and Salvagnin, D., 2015. \emph{On Handling Indicator Constraints in Mixed Integer Programming.} Preprint.
+\bibitem{boyd07}
+Boyd, Stephen, et al. ``A tutorial on geometric programming.'' Optimization and engineering 8.1 (2007): 67-127.
 
-  
+\bibitem{hoburg14a}
+Hoburg, Warren, and Pieter Abbeel. ``Geometric programming for aircraft design optimization.'' AIAA Journal 52.11 (2014): 2414-2426.
+
+\bibitem{hoburg14b}
+Hoburg, Warren, and P. Abbeel. "Fitting Geometric Programming Models to Data." Optimization and Engineering (2014).
+
+\bibitem{lubin15}
+Lubin, Miles, et al. ``Extended Formulations in Mixed-integer Convex Programming.'' arXiv preprint arXiv:1511.06710 (2015).
+
+\bibitem{boyd06}
+Grant, Michael, Stephen Boyd, and Yinyu Ye. \textit{Disciplined convex programming.} Springer US, 2006.
+
 \end{thebibliography}
 
 \end{document}
